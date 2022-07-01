@@ -1,3 +1,4 @@
+package screens;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
@@ -10,43 +11,29 @@ import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JLabel;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import java.awt.Dimension;
 import java.awt.Component;
 import javax.swing.ImageIcon;
 
-public class firstStage extends JFrame {
+public class Bidding extends JFrame {
 
-	private JPanel contentPane;
-	private JLabel lblNewLabel_1;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
+	private static JPanel contentPane;
+	private static JLabel lblNewLabel_1;
+	public  void  Bid(ArrayList<String> arr) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
-				try {
-					firstStage frame = new firstStage();
+		
+				     Bidding frame = new Bidding();
 					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the frame.
-	 */
-	public firstStage() {
-		setTitle("Bidding page ");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 537, 298);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
-		contentPane.setLayout(null);
+					setTitle("Bidding page ");
+					setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+					setBounds(100, 100, 537, 298);
+					contentPane = new JPanel();
+					contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+					setContentPane(contentPane);
+					contentPane.setLayout(null);
 		
 		JTextField textField = new JTextField();
 		textField.setToolTipText("");
@@ -59,7 +46,11 @@ public class firstStage extends JFrame {
 		
 		JButton btnNewButton = new JButton("Bid\r\n");
 		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent e) 
+			{
+				String amo = textField.getText();
+				Auctiondisplay_team.enter_auction(arr, amo);
+				
 			}
 		});
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 21));
@@ -74,8 +65,13 @@ public class firstStage extends JFrame {
 		contentPane.add(lblNewLabel);
 		
 		lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setIcon(new ImageIcon(firstStage.class.getResource("/assests/Auctiondisplay.png")));
+		lblNewLabel_1.setIcon(new ImageIcon(Bidding.class.getResource("/assests/Auctiondisplay.png")));
 		lblNewLabel_1.setBounds(0, 10, 513, 241);
 		contentPane.add(lblNewLabel_1);
+			
+			}
+		});
 	}
-}
+
+	}
+

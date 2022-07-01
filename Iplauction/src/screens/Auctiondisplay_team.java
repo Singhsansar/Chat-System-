@@ -3,7 +3,6 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import Auctionhandeling.Getplayers;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JButton;
@@ -16,18 +15,19 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.awt.FlowLayout;
 
-public class AuctionDisplay extends JFrame {
+public class Auctiondisplay_team extends JFrame {
 	static JFrame jframe_timer = new JFrame();
 	static JLabel jLabel = new JLabel();
+    static String sum ="";
 
 	private static JPanel contentPane;
 
 
-	public static void enter_auction(ArrayList<String> arr) {
+	public static void enter_auction(ArrayList<String> arr, String amount) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				
-		AuctionDisplay frame = new AuctionDisplay();
+        Auctiondisplay_team frame = new Auctiondisplay_team();
 		frame.setVisible(true);
 		frame.setTitle("Auction Screen ");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -37,16 +37,15 @@ public class AuctionDisplay extends JFrame {
 		frame.setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JButton btnNewButton = new JButton("Next Player");
+		JButton btnNewButton = new JButton("Bid");
 		btnNewButton.setBackground(Color.ORANGE);
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 13));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
-				jframe_timer.dispose();
-				frame.dispose();
-				jLabel.removeAll();
-				Getplayers.get_next();
+                Bidding bid = new Bidding();
+                bid.Bid(arr);
+                
 			}
 		});
 		btnNewButton.setBounds(630, 507, 115, 33);
@@ -142,7 +141,7 @@ public class AuctionDisplay extends JFrame {
 		lblCua_2_1_1_1_1.setBounds(135, 421, 280, 42);
 		contentPane.add(lblCua_2_1_1_1_1);
 		
-		JLabel lblCua_2_1_1_1_1_1 = new JLabel(arr.get(8).toString());
+		JLabel lblCua_2_1_1_1_1_1 = new JLabel(amount);//arr.get(8).toString());
 		lblCua_2_1_1_1_1_1.setForeground(Color.WHITE);
 		lblCua_2_1_1_1_1_1.setFont(new Font("Tahoma", Font.BOLD, 17));
 		lblCua_2_1_1_1_1_1.setBounds(667, 382, 155, 42);

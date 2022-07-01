@@ -5,15 +5,14 @@ import java.util.ArrayList;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
-
 import screens.AuctionDisplay;
-
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoClient;
 import org.bson.Document;
 
 
 public class Getplayers {
+  static ArrayList<String> abc;
 
   static LinkedList<ArrayList<String>> linklist = new LinkedList<ArrayList<String>>();
   static int i = 0 ;
@@ -31,8 +30,8 @@ public class Getplayers {
         FindIterable<Document> iterDoc = collection.find();
         Iterator<Document> it = iterDoc.iterator();
         while (it.hasNext()) {
-          ArrayList<String> list = new ArrayList<String>();
-        Document data =  it.next();
+       ArrayList<String> list = new ArrayList<String>();
+       Document data =  it.next();
        String name=(String)data.get("Name");
        String age=(String)data.get("Age");
        String country=(String)data.get("Country");
@@ -59,9 +58,14 @@ public class Getplayers {
     }
     public static void get_next()
     {
-     ArrayList<String> abc= linklist.get(i);
+      abc= linklist.get(i);
       i = i+1; 
       AuctionDisplay.enter_auction(abc);
     }
+    public static void get_team_log()
+    {
+      
+    }
+    
     
 }

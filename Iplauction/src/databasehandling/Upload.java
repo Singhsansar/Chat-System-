@@ -5,44 +5,49 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import functions.Func;
 import com.mongodb.client.MongoClient;
+import java.util.ArrayList;
 import org.bson.Document;
+import screens.*;
 public class Upload
 {
-       static String url ="mongodb+srv://Singh:0T4px6E8Of7YIisU@singh.rdxxovq.mongodb.net/?retryWrites=true&w=majority"; 
+       static final String url ="mongodb+srv://Singh:0T4px6E8Of7YIisU@singh.rdxxovq.mongodb.net/?retryWrites=true&w=majority"; 
        static  MongoClient mongoClient =  MongoClients.create(url);
         //Func.print("Connected Successfully!!!!!!!!!");
        static  MongoDatabase db = mongoClient.getDatabase("IPLAuction");
-    public static void addplalyer()
+    public static void addplalyer(ArrayList<String> list)
     {
-            db.getCollection("playerlist");
-            MongoCollection<org.bson.Document> collection = db.getCollection("playerlist");
-            //System.out.println("collection is ready");
+        if(userdata.validate)
+            db.getCollection("playerList");
+            MongoCollection<org.bson.Document> collection = db.getCollection("playerList");
             Document docs = new Document();
-            Func.delay(1000);
-            Func.print("------------------Enter the Following details-------------------");
-            docs.put("Set No", Func.input("Set No: "));
-            docs.put("Set Name",  Func.input("Set Name: "));
-            docs.put("Player",  Func.input("Player Name: "));
-            docs.put("Country", Func.input("Country : "));
-            docs.put("Age",  Func.input("Age : "));
-            docs.put("Specialism", Func.input("Specialism : "));
-            docs.put("Batting",  Func.input("Battinlg Style: "));
-            docs.put("Bowling",  Func.input("Bowlinlg Style: "));
-            docs.put("No of Ipl matches",  Func.input("No. Matches played in IPL: "));
-            docs.put("C/U/A",  Func.input("capped/uncapped: "));
-            docs.put("Base Price",  Func.input("Base Price: "));
-            collection.insertOne(docs);
-            Func.delay(1000);
+            docs.put("Email", list.get(0));
+            docs.put("Password",  list.get(1));
+            docs.put("Name",  list.get(2));
+            docs.put("Age",list.get(3)  );
+            docs.put("Country", list.get(4));
+            docs.put("Specialism", list.get(6));
+            docs.put("Batting", list.get(7));
+            docs.put("Bowling", list.get(8));
+            docs.put("No of Ipl matches", list.get(5));
+            docs.put("C/U/A",list.get(9));
+            docs.put("Base Price",  list.get(10));
             Func.print("-----------------player Added Successfully---------------------------------");
 
-
+            if(!userdata.exists(list.get(0)))
+            {
+                collection.insertOne(docs);
+                userdata.Createuser(list, "Player");
+            }
+            else
+                {popup.popup_sreen("Email is already registered,Enter valid Email");}
+            
+            Login.login();
     }
 
     //Search the player to show the profile 
     public void searchplayer()
     {
-        //String name = Func.input("Enter the Name of the player : ");
-        //String country = Func.input("Enter the country of the player : ");
+        
     }
    
 }

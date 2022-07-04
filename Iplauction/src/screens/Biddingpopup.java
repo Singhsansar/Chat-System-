@@ -1,7 +1,5 @@
 package screens;
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -11,29 +9,31 @@ import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JLabel;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import java.awt.Dimension;
 import java.awt.Component;
 import javax.swing.ImageIcon;
 
-public class Bidding extends JFrame {
+public class Biddingpopup extends JFrame {
+	static Biddingpopup frame = new Biddingpopup();
 
 	private static JPanel contentPane;
-	private static JLabel lblNewLabel_1;
-	public  void  Bid(ArrayList<String> arr) {
+	/**
+	 * Launch the application.
+	 */
+	public static void Bid() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 		
-				     Bidding frame = new Bidding();
-					frame.setVisible(true);
-					setTitle("Bidding page ");
-					setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-					setBounds(100, 100, 537, 298);
-					contentPane = new JPanel();
-					contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-					setContentPane(contentPane);
-					contentPane.setLayout(null);
+		frame.setVisible(true);
+		frame.setTitle("Bidding page ");
+
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setBounds(100, 100, 537, 298);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		frame.setContentPane(contentPane);
+		contentPane.setLayout(null);
 		
 		JTextField textField = new JTextField();
 		textField.setToolTipText("");
@@ -46,11 +46,7 @@ public class Bidding extends JFrame {
 		
 		JButton btnNewButton = new JButton("Bid\r\n");
 		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) 
-			{
-				String amo = textField.getText();
-				Auctiondisplay_team.enter_auction(arr, amo);
-				
+			public void actionPerformed(ActionEvent e) {
 			}
 		});
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 21));
@@ -64,14 +60,19 @@ public class Bidding extends JFrame {
 		lblNewLabel.setBounds(159, 54, 217, 40);
 		contentPane.add(lblNewLabel);
 		
-		lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setIcon(new ImageIcon(Bidding.class.getResource("/assests/Auctiondisplay.png")));
+		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setIcon(new ImageIcon(Biddingpopup.class.getResource("/assests/Auctiondisplay.png")));
 		lblNewLabel_1.setBounds(0, 10, 513, 241);
 		contentPane.add(lblNewLabel_1);
-			
+				
 			}
 		});
 	}
 
-	}
+	public static void dispose_frame()
+	{
+		frame.dispose();
+	}	 
 
+	
+}

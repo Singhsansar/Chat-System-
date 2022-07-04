@@ -11,11 +11,12 @@ import java.util.ArrayList;
 import org.bson.Document;
 public class userdata {
 
-            static  String url =Upload.url;
-            static MongoClient mongoClient =  MongoClients.create(url);
-            static MongoDatabase db = mongoClient.getDatabase("IPLAuction");
-            public static boolean validate;
-            public static void addTeam(ArrayList<String> list)
+    static  String url =userRegister.url;
+    static MongoClient mongoClient =  MongoClients.create(url);
+    static MongoDatabase db = mongoClient.getDatabase("IPLAuction");
+    
+public static boolean validate;
+    public static void addTeam(ArrayList<String> list)
     {
             
             db.getCollection("IPLTeams");
@@ -54,24 +55,25 @@ public class userdata {
     }
     public static boolean exists(String email)
     {
-            String Email ="";
-            db.getCollection("Users");
-            MongoCollection<org.bson.Document> collection = db.getCollection("Users");
-            BasicDBObject searchQuery = new BasicDBObject();
-            searchQuery.put("Email", email);
-            MongoCursor<org.bson.Document> cursor = collection.find(searchQuery).iterator();
+        String Email ="";
+        db.getCollection("Users");
+        MongoCollection<org.bson.Document> collection = db.getCollection("Users");
+        BasicDBObject searchQuery = new BasicDBObject();
+        searchQuery.put("Email", email);
+        MongoCursor<org.bson.Document> cursor = collection.find(searchQuery).iterator();
         
-            while (cursor.hasNext()) {
-            Document data =  cursor.next();
+        while (cursor.hasNext()) {
+           Document data =  cursor.next();
             Email =(String) data.get("Email"); //return the email
-            }
-            if(!Email.equals(""))
-            {
+           
+        }
+        if(!Email.equals(""))
+        {
                 System.out.println("User exist");
                 return true;
-            }
+        }
         
-            return false;
+        return false;
     }
     
 }

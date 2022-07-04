@@ -4,6 +4,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import Auctionhandeling.Getplayers;
+import Auctionhandeling.unsoldplayerhnadeling;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JButton;
@@ -14,20 +15,22 @@ import javax.swing.ImageIcon;
 import java.awt.Color;
 import java.util.Timer;
 import java.util.TimerTask;
-import java.awt.FlowLayout;
-
 public class AuctionDisplay extends JFrame {
-	static JFrame jframe_timer = new JFrame();
+	
 	static JLabel jLabel = new JLabel();
-
+	static AuctionDisplay frame = new AuctionDisplay();
+	static ArrayList<String> list;
 	private static JPanel contentPane;
+    public static Object countdown;
 
 
 	public static void enter_auction(ArrayList<String> arr) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
+
 				
-		AuctionDisplay frame = new AuctionDisplay();
+		list = arr;
+		 Timer timer = new Timer();
 		frame.setVisible(true);
 		frame.setTitle("Auction Screen ");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -37,13 +40,29 @@ public class AuctionDisplay extends JFrame {
 		frame.setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+
+			JButton homeButton = new JButton("Home ");
+					homeButton.setForeground(Color.WHITE);
+					homeButton.setFont(new Font("Tahoma", Font.BOLD, 17));
+					homeButton.setBackground(Color.BLACK);
+					homeButton.setBounds(20, 25, 140, 34);
+					contentPane.add(homeButton);
+					homeButton.addActionListener(new ActionListener() {
+						public void actionPerformed(ActionEvent e) 
+						{
+							dispose_frame();
+							timer.cancel();
+							Adminhomepage.Admin_home();
+						}
+					});
+
 		JButton btnNewButton = new JButton("Next Player");
 		btnNewButton.setBackground(Color.ORANGE);
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 13));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
-				jframe_timer.dispose();
+				//jframe_timer.dispose();
 				frame.dispose();
 				jLabel.removeAll();
 				Getplayers.get_next();
@@ -87,7 +106,7 @@ public class AuctionDisplay extends JFrame {
 		lblBownling.setFont(new Font("Tahoma", Font.BOLD, 17));
 		lblBownling.setBounds(33, 421, 155, 42);
 		contentPane.add(lblBownling);
-		
+		//count_down(arr);
 		JLabel lblCua = new JLabel("Matches played:");
 		lblCua.setForeground(Color.WHITE);
 		lblCua.setFont(new Font("Tahoma", Font.BOLD, 17));
@@ -152,69 +171,58 @@ public class AuctionDisplay extends JFrame {
 		lblCua_2_1_1_1_1_1_1.setForeground(Color.WHITE);
 		lblCua_2_1_1_1_1_1_1.setFont(new Font("Tahoma", Font.BOLD, 17));
 		lblCua_2_1_1_1_1_1_1.setBounds(641, 421, 155, 42);
-		contentPane.add(lblCua_2_1_1_1_1_1_1);
+		contentPane.add(lblCua_2_1_1_1_1_1_1);		
 		
 		JLabel lblCua_2_1_1_1_1_1_1_1 = new JLabel(arr.get(6).toString());
 		lblCua_2_1_1_1_1_1_1_1.setForeground(Color.WHITE);
 		lblCua_2_1_1_1_1_1_1_1.setFont(new Font("Tahoma", Font.BOLD, 17));
 		lblCua_2_1_1_1_1_1_1_1.setBounds(590, 353, 155, 42);
 		contentPane.add(lblCua_2_1_1_1_1_1_1_1);
+
+
+
+		JLabel timJLabel = new JLabel();
+		timJLabel.setForeground(Color.WHITE);
+		timJLabel.setBounds(550, 20, 200, 50);
+		timJLabel.setFont(new Font("Tahoma", Font.BOLD, 22));
+		contentPane.add(timJLabel);
+		timJLabel.setVisible(true);
+		 timer.scheduleAtFixedRate(new TimerTask() 
+		 {
+			 int i = 60;
+			 public void run() {
+				 timJLabel.setText("Time left: " + i);
+				 i--;
+				 if (i < 0) {
+					 timer.cancel();
+
+					     timJLabel.setText("Time Over");
+					     unsoldplayerhnadeling.add_unsold(arr);
+						 popup.popup_sreen("Player Remained Unsold");
+						 
+						 
+				 }
+			 }
+		 }, 0, 1000);
 		
+		//System.out.println("Hello");
 		JLabel lblNewLabel_2 = new JLabel("");
 		lblNewLabel_2.setIcon(new ImageIcon(AuctionDisplay.class.getResource("/assests/images.png")));
 		lblNewLabel_2.setBounds(10, 10, 758, 545);
 		contentPane.add(lblNewLabel_2);
-		count_down();
-		//Getplayers.get_next();
+
+		
+		
+		
 			}
 			
 		});
 	}
-	public static void count_down()
-	    {
-
-	        
-	       
-	        jframe_timer.setLayout(new FlowLayout());
-	        jframe_timer.setBounds(500, 300, 400, 100);
-	        jframe_timer.add(jLabel);
-	        jframe_timer.setVisible(true);
-	        Timer timer = new Timer();
-	        timer.scheduleAtFixedRate(new TimerTask() {
-	            int i = 30;
-	            public void run() {
-	                jLabel.setText("Time left: " + i);
-	                //jLabel.setForeground(Color.WHITE);
-	        		jLabel.setFont(new Font("Tahoma", Font.BOLD, 17));
-	        		jLabel.setBounds(515, 47, 132, 26);
-	                i--;
-	                if (i < 0) {
-	                    timer.cancel();
-	                    jLabel.setText("Time Over");
-	                    try {
-	                        // Delay for 1 seonds
-	                        Thread.sleep(3000);   
-	                      }
-	                      catch (InterruptedException ex)
-	                      {
-	                          ex.printStackTrace();
-	                      }
-	                    jLabel.setText("Player Reamined unsold");
-	                    try {
-	                        // Delay for 1 seonds
-	                        Thread.sleep(2000);   
-	                      }
-	                      catch (InterruptedException ex)
-	                      {
-	                          ex.printStackTrace();
-	                      }
-	                    jframe_timer.dispose();
-	                }
-	            }
-	        }, 0, 1000);
-			
-	    }
 	
-	 
+
+		public static void dispose_frame()
+		{
+		frame.dispose();
+		}	 
 	
 }

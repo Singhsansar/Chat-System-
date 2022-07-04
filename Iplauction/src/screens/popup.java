@@ -16,18 +16,13 @@ public class popup extends JFrame {
 
 	private static JPanel contentPane;
 
-	/**
-	 * Launch the application.
-	 */
+	static JFrame frame = new JFrame();
+
 	public static void popup_sreen(String message) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
-				// try {
-					JFrame frame = new JFrame();
-					frame.setVisible(true);
-				// } catch (Exception e) {
-				// 	e.printStackTrace();
-				// }
+					
+				frame.setVisible(true);
 				frame.setTitle("Alert");
 				frame.setIconImage(Toolkit.getDefaultToolkit().getImage(popup.class.getResource("/assests/admin.png")));
 				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -42,7 +37,8 @@ public class popup extends JFrame {
 				btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 17));
 				btnNewButton.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-				frame.dispose();
+					
+					frame.dispose();
 			
 			}
 			
@@ -56,8 +52,14 @@ public class popup extends JFrame {
 				lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
 				lblNewLabel.setBounds(91, 39, 414, 61);
 				contentPane.add(lblNewLabel);
+
 			}
 		});
+	}
+	public static void popup_close()
+	{
+		
+		frame.dispose();
 	}
 
 

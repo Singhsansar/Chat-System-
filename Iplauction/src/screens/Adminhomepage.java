@@ -17,9 +17,11 @@ public class Adminhomepage extends JFrame {
 	private static JPanel contentPane;
 	static Adminhomepage frame = new Adminhomepage();
 					
-	public static void Admin_home() {
+	public static void Admin_home()
+	 {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
+					
 					frame.setVisible(true);
 					frame.setTitle("Homepage");
 					frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -28,7 +30,7 @@ public class Adminhomepage extends JFrame {
 					contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 					frame.setContentPane(contentPane);
 					contentPane.setLayout(null);
-					
+
 					JButton btnNewButton = new JButton("RegisterTeam ");
 					btnNewButton.setForeground(Color.WHITE);
 					btnNewButton.setBackground(Color.ORANGE);
@@ -36,9 +38,11 @@ public class Adminhomepage extends JFrame {
 					btnNewButton.addActionListener(new ActionListener() {
 						public void actionPerformed(ActionEvent e) 
 						{
+							dispose_frame();
 							Registerteam.RegisterTeam();
 						}
 					});
+					
 					btnNewButton.setBounds(309, 352, 194, 53);
 					contentPane.add(btnNewButton);
 					
@@ -47,8 +51,9 @@ public class Adminhomepage extends JFrame {
 					btnStartauction.setBackground(Color.ORANGE);
 					btnStartauction.addActionListener(new ActionListener() {
 						public void actionPerformed(ActionEvent e) {
-							Getplayers.getplayer();
-							Getplayers.get_next();
+							
+							dispose_frame();
+							Getplayers.get_same_admin();
 						}
 					});
 					btnStartauction.setFont(new Font("Tahoma", Font.BOLD, 20));
@@ -60,6 +65,8 @@ public class Adminhomepage extends JFrame {
 					btnPlayers.setBackground(Color.ORANGE);
 					btnPlayers.addActionListener(new ActionListener() {
 						public void actionPerformed(ActionEvent e) {
+							dispose_frame();
+							Getplayers.get_one();
 						}
 					});
 					btnPlayers.setFont(new Font("Tahoma", Font.BOLD, 20));
@@ -82,6 +89,15 @@ public class Adminhomepage extends JFrame {
 					btnLogout.addActionListener(new ActionListener() {
 						public void actionPerformed(ActionEvent e)
 						{
+							playerlist.dispose_frame();
+							Registerteam.dispose_frame();
+							dispose_frame();
+							popup.popup_close();
+							TeamHome.dispose_frame();
+							Biddingpopup.dispose_frame();
+							AuctionDisplayteam.dispose_frame();
+							AuctionDisplay.dispose_frame();
+							Signup.dispose_frame();
 							Login.login();
 						
 						}
@@ -95,5 +111,8 @@ public class Adminhomepage extends JFrame {
 			}
 		});
 	}
-
+	public static void dispose_frame()
+	{
+		frame.dispose();
+	}
 }

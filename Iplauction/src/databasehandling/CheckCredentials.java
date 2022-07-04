@@ -3,16 +3,15 @@ import org.bson.Document;
 import com.mongodb.BasicDBObject;
 import com.mongodb.client.*;
 import screens.Adminhomepage;
+import screens.Login;
+import screens.Playerhome;
 import screens.TeamHome;
 import screens.popup;
 
-
-
-
-//Check data base for lgetting the password 
 public class CheckCredentials
 {
-     static  String url =Upload.url;
+    
+     static  String url =userRegister.url;
      static  MongoClient mongoClient =  MongoClients.create(url);
      static MongoDatabase db = mongoClient.getDatabase("IPLAuction");
 
@@ -33,21 +32,31 @@ public class CheckCredentials
             pass = (String) data.get("password");
             Role = (String) data.get("Role");
         }
+        System.out.println(Email);
+        System.out.println(pass);
         
         if(Email.equals(email) && pass.equals(password))
         {
-            if(Role.equals("admin")) 
-            Adminhomepage.Admin_home();
-            else if (Role.equals("Player"))
-            //AuctionDisplay.enter_auction();
-            //else 
+            Login.dispose_frame();
+            if(Role.equals("admin"))
+            {
+                
+                Adminhomepage.Admin_home();
+            } 
+            
+            else if (Role.equals("TeamManager")) 
             TeamHome.Team_home();
 
+            else if (Role.equals("Player")) 
+            {
+                Playerhome home = new Playerhome(Email);
+                home.Player_home();
+            }
+
         }
-        else 
+        else
         {
-            popup.popup_sreen("Invalid Login ID/password");
-            //pop pu with msg of invalid Credentials 
+            popup.popup_sreen("Invalid Credentials");
         }
 
         

@@ -79,7 +79,7 @@ public class TeamHome extends JFrame {
 		contentPane.add(lblNewLabel_1);
 
 		JButton btnLogout = new JButton("Logout");
-					btnLogout.setForeground(Color.WHITE);
+					btnLogout.setForeground(Color.BLACK);
 					btnLogout.setFont(new Font("Tahoma", Font.BOLD, 20));
 					btnLogout.setBackground(Color.ORANGE);
 					btnLogout.setBounds(106, 401, 220, 38);

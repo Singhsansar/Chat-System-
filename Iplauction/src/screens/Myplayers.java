@@ -169,20 +169,20 @@ public class Myplayers extends JFrame
 		contentPane.add(lblCua_2_1_1_1_1_1_1_1);
 
 
-		JButton btnPreviousPlayer = new JButton("Previous Player");
-		btnPreviousPlayer.setForeground(Color.WHITE);
-		btnPreviousPlayer.setFont(new Font("Tahoma", Font.BOLD, 13));
-		btnPreviousPlayer.setBackground(Color.GREEN);
-		btnPreviousPlayer.setBounds(52, 507, 167, 33);
-		contentPane.add(btnPreviousPlayer);
-		btnPreviousPlayer.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) 
-            {
-				// frame.dispose();
-				// frame.dispose();
-				// Getplayers.get_previous();
-			}
-			});
+		// JButton btnPreviousPlayer = new JButton("Previous Player");
+		// btnPreviousPlayer.setForeground(Color.WHITE);
+		// btnPreviousPlayer.setFont(new Font("Tahoma", Font.BOLD, 13));
+		// btnPreviousPlayer.setBackground(Color.GREEN);
+		// btnPreviousPlayer.setBounds(52, 507, 167, 33);
+		// contentPane.add(btnPreviousPlayer);
+		// btnPreviousPlayer.addActionListener(new ActionListener() {
+		// 	public void actionPerformed(ActionEvent e) 
+        //     {
+		// 		// frame.dispose();
+		// 		// frame.dispose();
+		// 		// Getplayers.get_previous();
+		// 	}
+		// 	});
 		
 		
 		JLabel lblNewLabel_2 = new JLabel("");

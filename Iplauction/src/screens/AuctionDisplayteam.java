@@ -56,7 +56,7 @@ public class AuctionDisplayteam extends JFrame {
 		JButton homeButton = new JButton("Home ");
 		homeButton.setForeground(Color.WHITE);
 		homeButton.setFont(new Font("Tahoma", Font.BOLD, 17));
-		homeButton.setBackground(Color.BLACK);
+		homeButton.setBackground(Color.BLUE);
 		homeButton.setBounds(20, 25, 140, 34);
 		contentPane.add(homeButton);
 		homeButton.addActionListener(new ActionListener() {
@@ -64,7 +64,7 @@ public class AuctionDisplayteam extends JFrame {
 			{
 				dispose_frame();
 				timer.cancel();
-				//Adminhomepage.Admin_home();
+				Myplayers.backhome();
 
 			}
 		});

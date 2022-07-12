@@ -28,6 +28,7 @@ public class AuctionDisplayteam extends JFrame {
 	public static  void enter_auction(ArrayList<String> arr, String amount) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
+				Timer timer = new Timer();
 				
 		list = arr;
 		final_amount=amount;
@@ -51,6 +52,22 @@ public class AuctionDisplayteam extends JFrame {
 		});
 		btnNewButton.setBounds(630, 507, 115, 33);
 		contentPane.add(btnNewButton);
+		
+		JButton homeButton = new JButton("Home ");
+		homeButton.setForeground(Color.WHITE);
+		homeButton.setFont(new Font("Tahoma", Font.BOLD, 17));
+		homeButton.setBackground(Color.BLACK);
+		homeButton.setBounds(20, 25, 140, 34);
+		contentPane.add(homeButton);
+		homeButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) 
+			{
+				dispose_frame();
+				timer.cancel();
+				//Adminhomepage.Admin_home();
+
+			}
+		});
 		
 		JLabel lblNewLabel = new JLabel("Name:");
 		lblNewLabel.setForeground(Color.WHITE);
@@ -160,7 +177,50 @@ public class AuctionDisplayteam extends JFrame {
 		lblCua_2_1_1_1_1_1_1_1.setBounds(590, 353, 155, 42);
 		contentPane.add(lblCua_2_1_1_1_1_1_1_1);
 		
-		count_down(arr);
+		JLabel timJLabel = new JLabel();
+		timJLabel.setForeground(Color.WHITE);
+		timJLabel.setBounds(550, 20, 200, 50);
+		timJLabel.setFont(new Font("Tahoma", Font.BOLD, 22));
+		contentPane.add(timJLabel);
+		timJLabel.setVisible(true);
+ 
+		 
+		 timer.scheduleAtFixedRate(new TimerTask() 
+		 {
+			 int i = 60;
+			 public void run() {
+				 timJLabel.setText("Time left: " + i);
+				 i--;
+				 if (i < 0) {
+					 timer.cancel();
+
+					 timJLabel.setText("Time Over");
+					 try {
+						 
+						 Thread.sleep(3000);   
+					   }
+					   catch (InterruptedException ex)
+					   {
+						   ex.printStackTrace();
+					   }
+
+					   if(!final_amount.equals(initial_amount))
+					   {
+						 Teamplayerhandeling.addplayer(list);
+						 popup.popup_sreen("Congrats,You got the player");
+					   }
+					   else 
+					   {
+						 //player remained unsold 
+						 popup.popup_sreen("Player Remained Unsold");
+						 timJLabel.setText("Player Reamined unsold");
+						 unsoldplayerhnadeling.add_unsold(arr);
+					   }
+					   
+						 
+				 }
+			 }
+		 }, 0, 1000);
 
 		JLabel lblNewLabel_2 = new JLabel("");
 		lblNewLabel_2.setIcon(new ImageIcon(AuctionDisplay.class.getResource("/assests/images.png")));
@@ -169,54 +229,6 @@ public class AuctionDisplayteam extends JFrame {
 			}	
 		});
 	}
-			public static void count_down(ArrayList<String> arr)
-	    {
- 
-	       JLabel timJLabel = new JLabel();
-		   timJLabel.setForeground(Color.WHITE);
-		   timJLabel.setBounds(550, 20, 200, 50);
-		   timJLabel.setFont(new Font("Tahoma", Font.BOLD, 22));
-		   contentPane.add(timJLabel);
-		   timJLabel.setVisible(true);
-	
-	        Timer timer = new Timer();
-	        timer.scheduleAtFixedRate(new TimerTask() 
-			{
-	            int i = 60;
-	            public void run() {
-	                timJLabel.setText("Time left: " + i);
-	                i--;
-	                if (i < 0) {
-	                    timer.cancel();
-
-	                    timJLabel.setText("Time Over");
-	                    try {
-	                        
-	                        Thread.sleep(3000);   
-	                      }
-	                      catch (InterruptedException ex)
-	                      {
-	                          ex.printStackTrace();
-	                      }
-
-						  if(!final_amount.equals(initial_amount))
-						  {
-							Teamplayerhandeling.addplayer(list);
-							popup.popup_sreen("Congrats,You got the player");
-						  }
-						  else 
-						  {
-							//player remained unsold 
-							popup.popup_sreen("Player Remained Unsold");
-	                    	timJLabel.setText("Player Reamined unsold");
-							unsoldplayerhnadeling.add_unsold(arr);
-						  }
-						  
-							
-	                }
-	            }
-	        }, 0, 1000);			
-	    }
 
 		
 		public static void dispose_frame()

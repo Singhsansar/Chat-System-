@@ -17,45 +17,42 @@ remaining unsold.
 
 ## Functional Requirements of the System:
 
-bash
-● There should be two panels dedicated to Admin and Team Manager.
-● Each team manager should login with the given credentials before
+* bash
+* There should be two panels dedicated to Admin and Team Manager.
+* Each team manager should login with the given credentials before
 working on the system.
-● Admin will have the options to manage profiles of different types of
+*  Admin will have the options to manage profiles of different types of
 team managers and players registered.
-● Users should be able to securely login and logout after performing
+* Users should be able to securely login and logout after performing
 the task.
 
 
 ## Features of the project
 
 python
-● Admin Login: Admin can login into the system and display
+* Admin Login: Admin can login into the system and display
 players one by one to start the auction.
 
-● Team Manager Login: Team manager can login, search and
+* Team Manager Login: Team manager can login, search and
 start bidding for the players.
 
-● Each Team Manager has a 90cr. maximum limit for the entire
+* Each Team Manager has a 90cr. maximum limit for the entire
 auction program. Where the amount spent on players will be
 detected.
 
-● Team managers get 30 seconds to bid for a player. The player
+* Team managers get 30 seconds to bid for a player. The player
 will be held unsold if no team manager bids within 1 minute.
 
-● Players remaining unsold will be pushed into Unsold Stack.
-
-● Stack is used to push the players purchased and tree data
-structure is used to connect all the 11 players according to
-their categories.
+* Stack is used to push the players purchased by the team manager.
 
 
 ## Working of the project
-● The unsold Players will be moved to Queue. So, it can be
+
+* The unsold Players will be moved to Queue. So, it can be
 presented again later for the auction.
 
 
-● Players who are purchased by Team Managers will be added
+* Players who are purchased by Team Managers will be added
 to their respective Team Stack.
 
 

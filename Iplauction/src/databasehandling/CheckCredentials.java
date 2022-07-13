@@ -5,7 +5,7 @@ import com.mongodb.client.*;
 import screens.Adminhomepage;
 import screens.Login;
 import screens.Playerhome;
-import screens.TeamHome;
+import screens.TeamHomepage;
 import screens.popup;
 
 public class CheckCredentials
@@ -50,8 +50,8 @@ public class CheckCredentials
             else if (Role.equals("TeamManager"))
             {
                 //get in with the team id;
-                TeamHome.set_teamid(ID);
-                TeamHome.Team_home();
+                TeamHomepage.set_teamid(ID);
+                TeamHomepage.Team_home();
             } 
             
             else if (Role.equals("Player")) 

@@ -23,7 +23,7 @@ public class Playerhome extends JFrame
    }
 
 
-	static TeamHome frame = new TeamHome();
+	static TeamHomepage frame = new TeamHomepage();
 	public void Player_home() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -91,7 +91,7 @@ public class Playerhome extends JFrame
 
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon(TeamHome.class.getResource("/assests/admin.png")));
+		lblNewLabel.setIcon(new ImageIcon(TeamHomepage.class.getResource("/assests/admin.png")));
 		lblNewLabel.setBounds(10, 10, 900, 536);
 		contentPane.add(lblNewLabel);
 				

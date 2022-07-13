@@ -10,7 +10,7 @@ import screens.AuctionDisplay;
 import screens.AuctionDisplayteam;
 import screens.Myprofile;
 import screens.Playerhome;
-import screens.TeamHome;
+import screens.TeamHomepage;
 import screens.playerAuction;
 import screens.playerlist;
 import screens.popup;
@@ -167,7 +167,7 @@ public class Get_players {
       }
       else 
       {
-        TeamHome.dispose_frame();
+        TeamHomepage.dispose_frame();
       ArrayList<String> abc= linklist.get(i);
       AuctionDisplayteam.set_initialamount(abc.get(8));
       AuctionDisplayteam.enter_auction(abc,abc.get(8));}

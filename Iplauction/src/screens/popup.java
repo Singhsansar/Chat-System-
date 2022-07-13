@@ -12,7 +12,7 @@ import java.awt.event.ActionEvent;
 import java.awt.Font;
 import javax.swing.JLabel;
 
-public class popupScreen extends JFrame {
+public class popup extends JFrame {
 
 	private static JPanel contentPane;
 

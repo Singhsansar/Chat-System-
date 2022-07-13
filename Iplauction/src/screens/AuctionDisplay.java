@@ -190,7 +190,7 @@ public class AuctionDisplay extends JFrame {
 		timJLabel.setVisible(true);
 		 timer.scheduleAtFixedRate(new TimerTask() 
 		 {
-			 int i = 60;
+			 int i = 20;
 			 public void run() {
 				 timJLabel.setText("Time left: " + i);
 				 i--;

@@ -13,12 +13,12 @@ import java.awt.Font;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 
-public class TeamManagerHome extends JFrame {
+public class TeamHomepage extends JFrame {
 
 	private static JPanel contentPane;
 	static String ID=" ";
 
-	static TeamHome frame = new TeamHome();
+	static TeamHomepage frame = new TeamHomepage();
 	public static void Team_home() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -93,7 +93,7 @@ public class TeamManagerHome extends JFrame {
 		
 					//background image for the team manager's home page.
 		JLabel image_label = new JLabel("");
-		image_label.setIcon(new ImageIcon(TeamHome.class.getResource("/assests/admin.png")));
+		image_label.setIcon(new ImageIcon(TeamHomepage.class.getResource("/assests/admin.png")));
 		image_label.setBounds(10, 10, 900, 536);
 		contentPane.add(image_label);
 				

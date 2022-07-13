@@ -4,7 +4,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import Auctionhandeling.Teamplayerhandeling;
+import Auctionhandeling.Team_player_handeling;
 import Auctionhandeling.unsoldplayerhnadeling;
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -206,7 +206,7 @@ public class AuctionDisplayteam extends JFrame {
 
 					   if(!final_amount.equals(initial_amount))
 					   {
-						 Teamplayerhandeling.addplayer(list);
+						 Team_player_handeling.addplayer(list);
 						 popup.popup_sreen("Congrats,You got the player");
 					   }
 					   else 

@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.Stack;
 import screens.Myplayers;
 import screens.popup;
-public class Teamplayerhandeling 
+public class Team_player_handeling 
 {
     static Stack<ArrayList<String>> stack = new Stack<ArrayList<String>>();
 

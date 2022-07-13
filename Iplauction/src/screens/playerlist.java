@@ -3,7 +3,7 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import Auctionhandeling.Getplayers;
+import Auctionhandeling.Get_players;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JButton;
@@ -58,7 +58,7 @@ public class playerlist extends JFrame {
 			public void actionPerformed(ActionEvent e) 
 			{
 				frame.dispose();
-				Getplayers.get_one();
+				Get_players.get_one();
 			}
 		});
 		btnNewButton.setBounds(630, 507, 115, 33);
@@ -182,7 +182,7 @@ public class playerlist extends JFrame {
 			public void actionPerformed(ActionEvent e) 
 			{
 				frame.dispose();
-				Getplayers.delete_this();
+				Get_players.delete_this();
 			}
 		});
 
@@ -198,7 +198,7 @@ public class playerlist extends JFrame {
 
 				frame.dispose();
 				frame.dispose();
-				Getplayers.get_previous();
+				Get_players.get_previous();
 			}
 			});
 		

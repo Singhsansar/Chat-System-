@@ -18,7 +18,7 @@ import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoClient;
 import org.bson.Document;
 
-public class Getplayers {
+public class Get_players {
 
   static LinkedList<ArrayList<String>> linklist = new LinkedList<ArrayList<String>>();
   static int i = 0 ;

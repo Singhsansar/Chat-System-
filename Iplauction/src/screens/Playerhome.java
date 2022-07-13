@@ -3,7 +3,7 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import Auctionhandeling.Getplayers;
+import Auctionhandeling.Get_players;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -45,7 +45,7 @@ public class Playerhome extends JFrame
 			public void actionPerformed(ActionEvent e) 
             {
                 dispose_frame();
-                Getplayers.getmyprofile(Email);
+                Get_players.getmyprofile(Email);
 			}
 		});
 		btnNewButton.setBounds(106, 401, 220, 38);
@@ -55,7 +55,7 @@ public class Playerhome extends JFrame
 		btnEnterAuction.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
             {
-                Getplayers.seeAuction(Email);
+                Get_players.seeAuction(Email);
 			}
 		});
 		btnEnterAuction.setFont(new Font("Tahoma", Font.PLAIN, 20));

@@ -21,7 +21,7 @@ public class unsoldplayerhnadeling
           {
               ex.printStackTrace();
           }
-        Getplayers.get_next();
+        Get_players.get_next();
     }
 
     public static void get_unsold( )

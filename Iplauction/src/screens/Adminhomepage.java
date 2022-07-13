@@ -3,7 +3,7 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import Auctionhandeling.Getplayers;
+import Auctionhandeling.Get_players;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JButton;
@@ -52,7 +52,7 @@ public class Adminhomepage extends JFrame {
 					btnStartauction.addActionListener(new ActionListener() {
 						public void actionPerformed(ActionEvent e) {
 							
-							Getplayers.get_same_admin();
+							Get_players.get_same_admin();
 						}
 					});
 					btnStartauction.setFont(new Font("Tahoma", Font.BOLD, 20));
@@ -65,7 +65,7 @@ public class Adminhomepage extends JFrame {
 					btnPlayers.addActionListener(new ActionListener() {
 						public void actionPerformed(ActionEvent e) {
 							dispose_frame();
-							Getplayers.get_one();
+							Get_players.get_one();
 						}
 					});
 					btnPlayers.setFont(new Font("Tahoma", Font.BOLD, 20));

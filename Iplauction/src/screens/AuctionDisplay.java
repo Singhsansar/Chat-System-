@@ -3,7 +3,7 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import Auctionhandeling.Getplayers;
+import Auctionhandeling.Get_players;
 import Auctionhandeling.unsoldplayerhnadeling;
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -66,7 +66,7 @@ public class AuctionDisplay extends JFrame {
 		
 				jLabel.removeAll();
 				timer.cancel();
-				Getplayers.get_next();
+				Get_players.get_next();
 			}
 		});
 		btnNewButton.setBounds(630, 507, 115, 33);

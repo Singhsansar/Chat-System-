@@ -91,7 +91,20 @@ public class TeamManagerHome extends JFrame {
 						}
 					});
 		
-		
+					//background image for the team manager's home page.
+		JLabel image_label = new JLabel("");
+		image_label.setIcon(new ImageIcon(TeamHome.class.getResource("/assests/admin.png")));
+		image_label.setBounds(10, 10, 900, 536);
+		contentPane.add(image_label);
+				
+			}
+		});
+	}
+
+	public static void dispose_frame()
+	{
+		frame.dispose();
+	}
 	public static void set_teamid( String id)
 	{
 		ID=id;

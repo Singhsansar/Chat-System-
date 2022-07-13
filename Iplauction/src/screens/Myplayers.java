@@ -3,7 +3,8 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import Auctionhandeling.Get_players;
+import Auctionhandeling.Team_player_handeling;
+
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JButton;
@@ -42,7 +43,7 @@ public class Myplayers extends JFrame
 						public void actionPerformed(ActionEvent e) 
 						{
 							dispose_frame();
-							Adminhomepage.Admin_home();
+							Myplayers.backhome();
 						}
 					});
 		
@@ -54,7 +55,7 @@ public class Myplayers extends JFrame
 			public void actionPerformed(ActionEvent e) 
 			{
 				frame.dispose();
-				Get_players.get_one();
+				Team_player_handeling.getplayer();
 			}
 		});
 		btnNewButton.setBounds(630, 507, 115, 33);

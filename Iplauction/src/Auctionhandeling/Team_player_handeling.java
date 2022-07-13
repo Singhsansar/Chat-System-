@@ -18,7 +18,7 @@ public class Team_player_handeling
         ArrayList<String> arr = new ArrayList<String>();
         if(stack.empty())
         {
-            popup.popup_sreen("No more players");
+           
             try {
                 // Delay for 1 seonds
                 Thread.sleep(2000);   
@@ -28,6 +28,7 @@ public class Team_player_handeling
                   ex.printStackTrace();
               }
             Myplayers.backhome();
+            popup.popup_sreen("No more players");
         }
         else
         {

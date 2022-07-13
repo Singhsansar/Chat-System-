@@ -18,6 +18,7 @@ public class userdata {
     static MongoDatabase db = mongoClient.getDatabase("IPLAuction");
     
 public static boolean validate;
+
     public static void addTeam(ArrayList<String> list)
     {
             
